@@ -19,8 +19,8 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->integer('credits')->nullable;
             $table->foreignId('department_id')->constrained()->onDelete('cascade');
-            $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
-            $table->foreignId('updated_by')->constrained('users')->onDelete('cascade');
+            $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('updated_by')->nullable()->constrained('users')->nullOnDelete();
         });
     }
 
