@@ -13,6 +13,6 @@ class LevelSeeder extends Seeder
      */
     public function run(): void
     {
-        Level::factory()->count(3)->create();
+        Level::factory()->count(6)->create();
     }
 }
