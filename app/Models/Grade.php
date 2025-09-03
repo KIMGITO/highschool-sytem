@@ -35,8 +35,8 @@ class Grade extends Model
         return $this->belongsTo(User::class, 'updated_by');
     }
 
-    // public function students()
-    // {
-    //     return $this->hasMany(Student::class);
-    // }
+    public function students()
+    {
+        return $this->hasMany(Student::class);
+    }
 }

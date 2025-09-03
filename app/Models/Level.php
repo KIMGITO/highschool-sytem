@@ -21,4 +21,10 @@ class Level extends Model
     public function updater(){
         return $this->belongsTo(User::class, 'updated_by');
     }
+    public function grades(){
+        return $this->hasMany(Grade::class);
+    }
+    public function students(){
+        return $this->hasManyThrough(Student::class, Grade::class);
+    }
 }

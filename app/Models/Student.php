@@ -38,4 +38,8 @@ class Student extends Model
     {
         return $this->belongsTo(User::class, 'updated_by');
     }
+
+    public function level(){
+        return $this->hasOneThrough(Level::class, Grade::class);
+    }
 }
