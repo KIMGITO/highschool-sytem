@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Subject;
-use Illuminate\Database\Seeder;
+use App\Models\Level;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
 
-class SubjectSeeder extends Seeder
+class LevelSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Subject::factory()->count(3)->create();
+        Level::factory()->count(3)->create();
     }
 }
