@@ -11,6 +11,18 @@ class Pathway extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'description', 'created_by', 'updated_by',
+        'description',
+        'created_by',
+        'updated_by',
     ];
+
+    public function creator()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function updater()
+    {
+        $this->belongsTo(User::class);
+    }
 }
