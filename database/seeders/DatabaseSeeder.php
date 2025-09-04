@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
             DepartmentSeeder::class,
             SubjectSeeder::class,
             LevelSeeder::class,
-            StudentSeeder::class,
             GuardianSeeder::class,
+            StudentSeeder::class,
         ]);
     }
 }
