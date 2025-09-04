@@ -24,6 +24,7 @@ return new class extends Migration
             $table->text('address');
             $table->year('enrollment_year');
             $table->enum('status', ['active', 'dropped', 'graduated'])->default('active');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('grade_id')->nullable()->constrained('grades')->nullOnDelete();
             $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
             $table->foreignId('updated_by')->nullable()->constrained('users')->nullOnDelete();

@@ -12,6 +12,7 @@ class Student extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'adm_no',
         'first_name',
         'last_name',
@@ -26,6 +27,11 @@ class Student extends Model
         'updated_by',
 
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function grade()
     {
         return $this->belongsTo(Grade::class);

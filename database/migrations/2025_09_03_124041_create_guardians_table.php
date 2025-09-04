@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('email')->unique()->nullable();
             $table->text('address');
             $table->string('occupation')->nullable();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
             $table->foreignId('updated_by')->nullable()->constrained('users')->nullOnDelete();
         });
