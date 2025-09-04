@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Guardian;
 use App\Models\Student;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class StudentSeeder extends Seeder
@@ -13,6 +13,9 @@ class StudentSeeder extends Seeder
      */
     public function run(): void
     {
-        Student::factory()->count(3)->create();
+        Student::factory()->count(3)->create()->each(function ($student){
+            $guardians = Guardian::all();
+            $student->guardians->attach($guardians->random(2)->pluck('id')->toArray());
+        });
     }
 }
