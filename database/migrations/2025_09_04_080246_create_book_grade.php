@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('book_level', function (Blueprint $table) {
+        Schema::create('book_grade', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('book_number')->unique();
             $table->enum('condition', ['new', 'used', 'acceptable', 'bad'])->default('new');
             $table->enum('status', ['available', 'issued', 'lost'])->default('available');
             $table->foreignId('book_id')->constrained('books')->cascadeOnDelete();
-            $table->foreignId('level_id')->nullable()->constrained('levels')->nullOnDelete();
+            $table->foreignId('grade_id')->nullable()->constrained('grades')->nullOnDelete();
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('book_level');
+        Schema::dropIfExists('book_grade');
     }
 };

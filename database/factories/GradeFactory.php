@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Grade>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\grade>
  */
 class GradeFactory extends Factory
 {
@@ -16,19 +16,11 @@ class GradeFactory extends Factory
      */
     public function definition(): array
     {
-
-        $classes = array_map(
-            fn($f, $s) => "Form $f $s",
-            [1, 1, 2, 2, 3, 3, ,4],
-            ['East', 'West', 'East', 'West', 'East', 'West']
-        );
         return [
-            'name' =>fake()->$classes,
-            'denote' => strtoupper(fake()->unique()->bothify('F?#')),
-            'level_id' => fake()->numberBetween(1, 6),
-            'description' => fake()->sentence(),
-            'crated_by' =>1,
-            'updated_by' =>1,
+            'name' => $this->faker->unique()->numberBetween(1,6),
+            'description' => $this->faker->sentence(),
+            'created_by' => fake()->numberBetween(1,3),
+            'updated_by' => fake()->numberBetween(1,3 ),
         ];
     }
 }

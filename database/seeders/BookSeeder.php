@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\Level;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Grade;
 
 class BookSeeder extends Seeder
 {
@@ -14,9 +15,9 @@ class BookSeeder extends Seeder
      */
     public function run(): void
     {
-        $levels = Level::all();
-        Book::factory()->count(6)->create()->each(function ($book) use ($levels) {
-            $book->levels()->attach($levels->random(1)->pluck('id')->toArray());
+        $grades = Grade::all();
+        Book::factory()->count(6)->create()->each(function ($book) use ($grades) {
+            $book->grades()->attach($grades->random(1)->pluck('id')->toArray());
         });
     }
 }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Grade;
+use App\Models\Stream;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,6 +14,6 @@ class GradeSeeder extends Seeder
      */
     public function run(): void
     {
-        Grade::factory()->count(3)->create();
+        Stream::factory()->count(3)->create();
     }
 }

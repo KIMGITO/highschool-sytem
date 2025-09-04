@@ -35,9 +35,9 @@ class Book extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function levels()
+    public function grades()
     {
-        return $this->belongsToMany(Level::class, 'book_level', 'book_id', 'level_id');
+        return $this->belongsToMany(Grade::class, 'book_grade', 'book_id', 'grade_id');
     }
-    // TODO:  crate book_level table
+    // TODO:  crate book_grade table
 }

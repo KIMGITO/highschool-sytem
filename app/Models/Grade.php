@@ -11,32 +11,24 @@ class Grade extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'denote',
-        'level_id',
         'description',
-        'teacher',
-        'created_bt',
+        'created_by',
         'updated_by',
     ];
-
-    public function level()
-    {
-        return $this->belongsTo(Level::class);
-    }
-
-    public function classTeacher(){
-        return $this->belongsTo(User::class, 'teacher');
-    }
-
     public function creator(){
         return $this->belongsTo(User::class, 'created_by');
     }
     public function updater(){
         return $this->belongsTo(User::class, 'updated_by');
     }
+    public function streams(){
+        return $this->hasMany(Stream::class);
+    }
+    public function students(){
+        return $this->hasManyThrough(Student::class, Stream::class);
+    }
 
-    public function students()
-    {
-        return $this->hasMany(Student::class);
+    public function books(){
+        return $this->belongsToMany(Book::class, 'book_grade', 'grade_id', 'book_id');
     }
 }

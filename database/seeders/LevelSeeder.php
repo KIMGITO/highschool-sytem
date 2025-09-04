@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Grade;
 use App\Models\Level;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,6 +14,6 @@ class LevelSeeder extends Seeder
      */
     public function run(): void
     {
-        Level::factory()->count(6)->create();
+        Grade::factory()->count(6)->create();
     }
 }

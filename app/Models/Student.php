@@ -32,7 +32,7 @@ class Student extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function grade()
+    public function stream()
     {
         return $this->belongsTo(Grade::class);
     }
@@ -45,8 +45,8 @@ class Student extends Model
         return $this->belongsTo(User::class, 'updated_by');
     }
 
-    public function level(){
-        return $this->hasOneThrough(Level::class, Grade::class);
+    public function grade(){
+        return $this->hasOneThrough(Grade::class, Stream::class);
     }
     public function guardians()
     {
