@@ -27,4 +27,8 @@ class Level extends Model
     public function students(){
         return $this->hasManyThrough(Student::class, Grade::class);
     }
+
+    public function books(){
+        return $this->belongsToMany(Book::class, 'book_level', 'level_id', 'book_id');
+    }
 }

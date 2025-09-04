@@ -13,9 +13,10 @@ class StudentSeeder extends Seeder
      */
     public function run(): void
     {
-        Student::factory()->count(3)->create()->each(function ($student){
-            $guardians = Guardian::all();
-            $student->guardians->attach($guardians->random(2)->pluck('id')->toArray());
+        $guardians = Guardian::all();
+
+        Student::factory()->count(3)->create()->each(function ($student) use($guardians){
+            $student->guardians()->attach($guardians->random(2)->pluck('id')->toArray());
         });
     }
 }

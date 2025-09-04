@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             LevelSeeder::class,
             GuardianSeeder::class,
             StudentSeeder::class,
+            BookSeeder::class,
         ]);
     }
 }
