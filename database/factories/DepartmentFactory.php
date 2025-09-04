@@ -22,6 +22,7 @@ class DepartmentFactory extends Factory
             'name' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'user_id' => User::factory(),
+            'pathway_id' => fake()->numberBetween(1,3),
         ];
     }
 }

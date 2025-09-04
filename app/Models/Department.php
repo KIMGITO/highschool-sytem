@@ -14,13 +14,16 @@ class Department extends Model
         'code',
         'name',
         'description',
-        'user_id'
+        'user_id',
+        'pathway_id',
     ];
 
+    public function pathway()
+    {
+        return $this->belongsTo(Pathway::class);
+    }
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    
-
 }

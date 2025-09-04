@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('departments', function (Blueprint $table) {
-
-            
+        Schema::create('pathways', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('code')->unique();
             $table->string('name')->unique();
             $table->text('description')->nullable();
-            $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
-            $table->foreignId('pathway_id')->constrained('pathways')->cascadeOnDelete();
-            
+            $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('updated_by')->nullable()->constrained('users')->nullOnDelete();
         });
     }
 
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('departments');
+        Schema::dropIfExists('pathways');
     }
 };
