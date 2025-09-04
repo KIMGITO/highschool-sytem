@@ -42,4 +42,10 @@ class Student extends Model
     public function level(){
         return $this->hasOneThrough(Level::class, Grade::class);
     }
+    public function guardians()
+    {
+        return $this->belongsToMany(Guardian::class, 'guardian_student', 'student_id', 'guardian_id');
+    }
+
+    // TODO: create guardian_student $table
 }
