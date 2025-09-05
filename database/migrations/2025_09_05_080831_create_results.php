@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('assessment_result', function (Blueprint $table) {
+        Schema::create('results', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->foreignId('assessment_id')->constrained()->cascadeOnDelete();
             $table->foreignId('student_id')->constrained()->cascadeOnDelete();
             $table->foreignId('subject_id')->nullable()-> constrained()->nullOnDelete();
+            $table->foreignId('competence_id')->nullable()->constrained()->nullOnDelete();
             $table->decimal('score', 8, 2);
             $table->foreignId('scale_id')->nullable()->constrained('scales')->nullOnDelete();
             $table->text('remarks')->nullable();
-            $table->unique(['assessment_id', 'student_id', 'subject_id']);
+            $table->unique(['assessment_id', 'student_id', 'subject_id','competence_id'], 'unique_assessment_student_subject_competence');
+
         });
     }
 
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('assessment_result');
+        Schema::dropIfExists('results');
     }
 };
