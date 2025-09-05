@@ -27,7 +27,10 @@ class StudentFactory extends Factory
             'address' => fake()->address(),
             'enrollment_year' => fake()->year(),
             'status' => fake()->randomElement(['active', 'dropped', 'graduated']),
-            'grade_id' => fake()->numberBetween(1, 3),
+            'stream_id' => fake()->numberBetween(1, 3),
+            'user_id' => fake()->unique()->numberBetween(1, 3),
+            'created_by' => 1,
+            'updated_by' => 1,
         ];
     }
 }

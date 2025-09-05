@@ -17,17 +17,13 @@ class StreamFactory extends Factory
     public function definition(): array
     {
 
-        $classes = array_map(
-            fn($f, $s) => "Form $f $s",
-            [1, 1, 2, 2, 3, 3, ,4],
-            ['East', 'West', 'East', 'West', 'East', 'West']
-        );
+       
         return [
-            'name' =>fake()->$classes,
+            'name' =>fake()->numberBetween(1,6),
             'denote' => strtoupper(fake()->unique()->bothify('F?#')),
-            'level_id' => fake()->numberBetween(1, 6),
+            'grade_id' => fake()->numberBetween(1, 6),
             'description' => fake()->sentence(),
-            'crated_by' =>1,
+            'created_by' =>1,
             'updated_by' =>1,
         ];
     }

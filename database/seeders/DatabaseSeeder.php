@@ -13,6 +13,7 @@ use Database\Seeders\SubjectSeeder;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Database\Seeders\DepartmentSeeder;
 use Database\Seeders\BookSeeder;
+use Database\Seeders\PathwaySeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,7 +27,8 @@ class DatabaseSeeder extends Seeder
             PathwaySeeder::class,
             DepartmentSeeder::class,
             SubjectSeeder::class,
-            LevelSeeder::class,
+            GradeSeeder::class,
+            StreamSeeder::class,
             GuardianSeeder::class,
             StudentSeeder::class,
             BookSeeder::class,

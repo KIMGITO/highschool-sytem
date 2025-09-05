@@ -17,8 +17,12 @@ class BookSeeder extends Seeder
     {
         $grades = Grade::all();
         Book::factory()->count(6)->create()->each(function ($book) use ($grades) {
-            $book->grades()->attach($grades->random(1)->pluck('id')->toArray());
+            $book->grades()->attach($grades->random(1)->pluck('id')->toArray(), [
+                'book_number' => fake()->unique()->bothify('##/??/??'),
+                'condition' => fake()->randomElement(['new', 'used', 'acceptable', 'bad']),
+                'status' => fake()->randomElement(['available', 'issued', 'lost']),
+                'grade_id' => $grades->random(1)->pluck('id')->first(),
+            ]);
         });
     }
 }
-

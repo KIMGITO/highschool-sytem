@@ -3,17 +3,17 @@
 namespace Database\Seeders;
 
 use App\Models\Grade;
-use App\Models\Level;
+use App\Models\Stream;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class LevelSeeder extends Seeder
+class StreamSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Grade::factory()->count(6)->create();
+        Stream::factory()->count(6)->create();
     }
 }

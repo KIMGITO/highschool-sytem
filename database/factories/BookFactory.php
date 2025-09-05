@@ -18,7 +18,7 @@ class BookFactory extends Factory
     {
 
         return [
-            'name' => fake()->word(),
+            'name' => fake()->unique()->word(),
             'subject_id' => fake()->numberBetween(1, 3),
             'publisher' => fake()->company(),
             'author' => fake()->lastName(),
