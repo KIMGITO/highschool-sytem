@@ -17,7 +17,10 @@ class CompetenceFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->unique()->word(),
+            'description' => fake()->sentence(),
+            'created_by' => 1, // Assuming user with ID 1 exists
+            'updated_by' => 1, // Assuming user with ID 1 exists
         ];
     }
 }

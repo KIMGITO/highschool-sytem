@@ -45,7 +45,5 @@ class Assessment extends Model
     }
 
 
-    // TODO: create assessment_subject table
-    // TODO: add pathway attribute to student table
-    # REM: create  assessment model and migrations. to separate from subjects
+    
 }

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Competence;
 
 class CompetenceSeeder extends Seeder
 {
@@ -12,6 +13,6 @@ class CompetenceSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Competence::factory()->count(5)->create();
     }
 }
