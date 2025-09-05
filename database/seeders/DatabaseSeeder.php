@@ -14,6 +14,7 @@ use Database\Seeders\SubjectSeeder;
 use Database\Seeders\DepartmentSeeder;
 use Database\Seeders\BookSeeder;
 use Database\Seeders\PathwaySeeder;
+use Database\Seeders\TeacherSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -32,6 +33,7 @@ class DatabaseSeeder extends Seeder
             GuardianSeeder::class,
             StudentSeeder::class,
             BookSeeder::class,
+            TeacherSeeder::class,
         ]);
     }
 }
