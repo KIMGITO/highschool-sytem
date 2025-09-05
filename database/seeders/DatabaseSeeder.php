@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             PathwaySeeder::class,
             DepartmentSeeder::class,
             SubjectSeeder::class,
+            CompetenceSeeder::class,
             GradeSeeder::class,
             StreamSeeder::class,
             GuardianSeeder::class,
