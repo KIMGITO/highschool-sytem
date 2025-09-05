@@ -13,12 +13,18 @@ class Subject extends Model
     protected $fillable = [
         'name',
         'code',
+        'core',
         'description',
         'credits',
         'department_id',
         'created_by',
         'updated_by',
     ];
+    protected $casts = [
+        'core' => 'boolean',
+        'credits' => 'integer',
+    ];
+    
 
     public function department()
     {

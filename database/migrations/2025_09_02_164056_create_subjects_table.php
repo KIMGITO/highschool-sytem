@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('code')->unique();
+            $table->boolean('core')->default(false);
             $table->text('description')->nullable();
             $table->integer('credits')->nullable;
             $table->foreignId('department_id')->constrained()->onDelete('cascade');
@@ -31,4 +32,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('subjects');
     }
+
 };
